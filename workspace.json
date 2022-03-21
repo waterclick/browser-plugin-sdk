@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "projects": {
+    "client": "packages/client",
+    "examples-client": "examples/client",
+    "examples-client-e2e": "examples/client-e2e",
+    "examples-host": "examples/host",
+    "examples-host-e2e": "examples/host-e2e",
+    "host": "packages/host",
+    "shared": "packages/shared"
+  }
+}

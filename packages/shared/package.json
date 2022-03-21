@@ -1,0 +1,11 @@
+{
+  "name": "@waterclick/plugin-shared",
+  "license": "MIT",
+  "version": "0.0.0",
+  "main": "dist/waterclick-plugin-shared.js",
+  "module": "dist/waterclick-plugin-shared.mjs",
+  "typings": "dist/waterclick-plugin-shared.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  }
+}

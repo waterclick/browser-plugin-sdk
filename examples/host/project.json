@@ -1,0 +1,75 @@
+{
+  "root": "examples/host",
+  "sourceRoot": "examples/host/src",
+  "projectType": "application",
+  "implicitDependencies": ["shared", "host"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/examples/host",
+        "index": "examples/host/src/index.html",
+        "baseHref": "/",
+        "main": "examples/host/src/main.tsx",
+        "polyfills": "examples/host/src/polyfills.ts",
+        "tsConfig": "examples/host/tsconfig.app.json",
+        "assets": ["examples/host/src/favicon.ico", "examples/host/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "examples/host/src/environments/environment.ts",
+              "with": "examples/host/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "examples-host:build",
+        "hmr": true,
+        "port": 9090
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "examples-host:build:production",
+          "hmr": false
+        },
+        "development": {
+          "hmr": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["examples/host/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/examples/host"],
+      "options": {
+        "jestConfig": "examples/host/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

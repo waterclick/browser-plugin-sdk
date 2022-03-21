@@ -1,0 +1,15 @@
+{
+  "name": "@waterclick/plugin-client",
+  "license": "MIT",
+  "version": "0.0.0",
+  "main": "dist/waterclick-plugin-client.js",
+  "module": "dist/waterclick-plugin-client.mjs",
+  "typings": "dist/waterclick-plugin-client.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "@waterclick/plugin-shared": "*",
+    "penpal": "^6.2.2"
+  }
+}

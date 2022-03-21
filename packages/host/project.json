@@ -1,0 +1,24 @@
+{
+  "root": "packages/host",
+  "targets": {
+    "clean": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "rimraf packages/host/dist"
+      }
+    }
+  },
+  "lint": {
+    "executor": "@nrwl/linter:eslint",
+    "outputs": [
+      "{options.outputFile}"
+    ],
+    "options": {
+      "lintFilePatterns": [
+        "packages/host/**/*.ts",
+        "packages/host/**/*.js",
+        "packages/host/**/*.json"
+      ]
+    }
+  }
+}

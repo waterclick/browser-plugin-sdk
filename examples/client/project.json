@@ -1,0 +1,75 @@
+{
+  "root": "examples/client",
+  "sourceRoot": "examples/client/src",
+  "projectType": "application",
+  "implicitDependencies": ["shared", "client"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/examples/client",
+        "index": "examples/client/src/index.html",
+        "baseHref": "/",
+        "main": "examples/client/src/main.tsx",
+        "polyfills": "examples/client/src/polyfills.ts",
+        "tsConfig": "examples/client/tsconfig.app.json",
+        "assets": ["examples/client/src/favicon.ico", "examples/client/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "examples/client/src/environments/environment.ts",
+              "with": "examples/client/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "examples-client:build",
+        "hmr": true,
+        "port": 9091
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "examples-client:build:production",
+          "hmr": false
+        },
+        "development": {
+          "hmr": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["examples/client/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/examples/client"],
+      "options": {
+        "jestConfig": "examples/client/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

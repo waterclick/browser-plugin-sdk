@@ -1,0 +1,28 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "packages/client/tsconfig.*?.json"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.js"],
+      "rules": {},
+      "parserOptions": {
+        "project": ["packages/client/tsconfig.*?.json"]
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js"],
+      "rules": {}
+    }
+  ]
+}
