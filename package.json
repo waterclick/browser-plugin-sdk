@@ -7,10 +7,11 @@
     "start": "nx run examples-host:serve:development",
     "start-client": "nx run examples-client:serve:development",
     "nx:runall": "nx run-many --all",
-    "nx:buildall": "yarn nx:runall --target=build",
     "clean": "yarn nx:runall --target=clean",
-    "build": "run-s clean nx:buildall",
-    "lint": "yarn nx:runall --target=lint"
+    "build": "yarn nx:runall --target=build",
+    "lint": "yarn nx:runall --target=lint",
+    "ci": "run-s clean build",
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/react": "11.8.2",
